@@ -241,12 +241,8 @@ const styles = StyleSheet.create({
   merchantText: { fontSize: 11, fontWeight: "bold", color: "navy" },
   voucherTitle: { fontSize: 18, paddingBottom: 10, fontWeight: "bold", color: "#000" },
   metaSmall: { fontSize: 11, color: "#555" },
-  voucherImageContainer: {
-  backgroundColor: "#555961ff", // Background color for the image container
-  padding: 10,
-  borderRadius: 8,
-  },
-  
+  voucherImageContainer: { backgroundColor: "#555961ff", padding: 10, borderRadius: 8 },
+
   promoGrid: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" },
   promoCard: { backgroundColor: "#fff", borderRadius: 12, paddingBottom: 10, marginBottom: 12, width: "48%", alignItems: "center" },
   promoImage: { width: "100%", height: 100, borderRadius: 8, marginBottom: 8, resizeMode: "cover" },
