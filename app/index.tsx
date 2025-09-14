@@ -13,7 +13,7 @@ export default function Home() {
   ];
 
   return (
-    <View style={styles.screen}>
+    <View id="home" style={styles.screen}>
       {/* sembunyikan header default ("Beranda") */}
       <Stack.Screen options={{ headerShown: false }} />
 
@@ -79,7 +79,7 @@ export default function Home() {
         <ScrollView horizontal showsHorizontalScrollIndicator={true}>
           {data.vouchers.active.map((voucher) => (
             <View key={voucher.id} style={styles.voucherCard}>
-              <Image source={voucher.logo} style={styles.voucherLogo} resizeMode="contain" />
+              <Image source={voucher.logo} style={[styles.voucherLogo, styles.voucherImageContainer]} resizeMode="contain" />
               <View>
                 <Text style={styles.merchantText}>{voucher.merchant}</Text>
                 <Text style={styles.voucherTitle}>{voucher.title}</Text>
@@ -173,28 +173,28 @@ export default function Home() {
 
       {/* Bottom Nav */}
       <View style={styles.tabBar}>
-        <Pressable style={styles.tabItem}>
+        <Pressable style={styles.tabItem} onPress={() => router.push("/")}>
           <Ionicons name="home-outline" size={22} color="#0F172A" />
           <Text style={styles.tabLabel}>Home</Text>
         </Pressable>
 
-        <Pressable style={styles.tabItem}>
+        <Pressable style={styles.tabItem} onPress={() => router.push("/driver")}>
           <Ionicons name="car-outline" size={22} color="#0F172A" />
           <Text style={styles.tabLabel}>Relief Driver</Text>
         </Pressable>
 
-        <Pressable style={styles.fab}>
+        <Pressable style={styles.fab} onPress={() => router.push("/jobs")}>
           <View style={styles.fabInner}>
             <Text style={styles.fabText}>S</Text>
           </View>
         </Pressable>
 
-        <Pressable style={styles.tabItem}>
+        <Pressable style={styles.tabItem} onPress={() => router.push("/jobs")}>
           <Ionicons name="briefcase-outline" size={22} color="#0F172A" />
           <Text style={styles.tabLabel}>Jobs / Trips</Text>
         </Pressable>
 
-        <Pressable style={styles.tabItem}>
+        <Pressable style={styles.tabItem} onPress={() => router.push("/profile")}>
           <Ionicons name="person-outline" size={22} color="#0F172A" />
           <Text style={styles.tabLabel}>Profile</Text>
         </Pressable>
@@ -241,7 +241,12 @@ const styles = StyleSheet.create({
   merchantText: { fontSize: 11, fontWeight: "bold", color: "navy" },
   voucherTitle: { fontSize: 18, paddingBottom: 10, fontWeight: "bold", color: "#000" },
   metaSmall: { fontSize: 11, color: "#555" },
-
+  voucherImageContainer: {
+  backgroundColor: "#555961ff", // Background color for the image container
+  padding: 10,
+  borderRadius: 8,
+  },
+  
   promoGrid: { flexDirection: "row", flexWrap: "wrap", justifyContent: "space-between" },
   promoCard: { backgroundColor: "#fff", borderRadius: 12, paddingBottom: 10, marginBottom: 12, width: "48%", alignItems: "center" },
   promoImage: { width: "100%", height: 100, borderRadius: 8, marginBottom: 8, resizeMode: "cover" },
